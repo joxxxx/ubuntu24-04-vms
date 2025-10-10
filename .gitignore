@@ -57,3 +57,6 @@ secrets.pkrvars.hcl
 screenshots/
 Proxmox/Terraform/tfplan
 !vSphere/Terraform/vars.auto.tfvars
+
+# Exclude Minecraft files
+Proxmox/Terraform_PVE02/minecraft*
