@@ -15,13 +15,13 @@ packer {
 variable "proxmox_url" {
   type        = string
   description = "The Proxmox API URL"
-  default     = "https://192.168.1.95:8006/api2/json"
+  default     = "https://10.1.0.100:8006/api2/json"
 }
 
 variable "proxmox_username" {
   type        = string
   description = "The Proxmox username for API operations"
-  default     = "root@pam!terraform"
+  default     = "terraform@pam!terraform"
 }
 
 variable "proxmox_token" {
@@ -33,7 +33,7 @@ variable "proxmox_token" {
 variable "proxmox_node" {
   type        = string
   description = "The Proxmox node to build on"
-  default     = "proxmox"
+  default     = "prox-01"
 }
 
 # VM Identification
@@ -47,13 +47,13 @@ variable "vm_id" {
 variable "iso_file" {
   type        = string
   description = "The ISO file to use for installation"
-  default     = "local:iso/ubuntu-24.04.2-live-server-amd64.iso"
+  default     = "local:iso/ubuntu-24.04.3-live-server-amd64.iso"
 }
 
 variable "iso_checksum" {
   type        = string
   description = "The checksum for the ISO file"
-  default     = "sha256:45f9ddf5b54cb51a0badcd27d633e587e6f176762d7cda49862095d92dfd2055"
+  default     = "sha256:c3514bf0056180d09376462a7a1b4f213c1d6e8ea67fae5c25099c6fd3d8274b"
 }
 
 # VM Credentials
@@ -119,7 +119,7 @@ source "proxmox-iso" "ubuntu-2404" {
   disks {
     disk_size    = "20G"
     format       = "raw"
-    storage_pool = "local-lvm"
+    storage_pool = "dataext"
     type         = "scsi"
     ssd          = true
   }
@@ -127,7 +127,7 @@ source "proxmox-iso" "ubuntu-2404" {
   # VM Network Settings
   network_adapters {
     model    = "virtio"
-    bridge   = "vmbr0"
+    bridge   = "lan10"
     firewall = false
   }
 

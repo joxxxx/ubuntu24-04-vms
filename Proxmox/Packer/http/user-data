@@ -3,24 +3,32 @@ autoinstall:
   version: 1
   locale: en_US
   keyboard:
-    layout: us
+    layout: fr
+  users:
+    - name: ubuntu
+      lock_passwd: false
+      shell: /bin/bash
+      sudo: ALL=(ALL) NOPASSWD:ALL
   identity:
     hostname: ubuntu-server
     username: ubuntu
-    password: "$6$rounds=4096$ntlX/dlo6b$HXaLN4RcLIGaEDdQdR2VTYi9pslSeXWL131MqaakqE285Nv0kW9KRontQYivCbycZerUMcjVsuLl2V8bbdadI1"
+    password: "$6$5x.eVYUlc0bptPoe$X8ukAbZ3zFrR9ymCIx3RO09a405mwDQyypnjz9DjBEwKnULmgAxU023DZPRJgpKKjRKGOJ3k0Boh060m2ix/W."
   ssh:
     install-server: true
     allow-pw: true
     ssh_quiet_keygen: true
+    authorized-keys:
+      - "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJJqrNZ5pTSv8CqAamLwaTToVQTww20xWfT36zzEvXj7 joxxxx@joxxxx-win"
+      - "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAc1CL5PjTH1pgg/WJtIVzJ4AwDUBauFkzhG4QANdCCy genoy@joxxxx-win"
   network:
-    network:
-      version: 2
-      ethernets:
-        any:
-          match:
-            name: en*
-          dhcp4: true
-          dhcp6: false
+    version: 2
+    ethernets:
+      any:
+        match:
+          name: en*
+        dhcp4: true
+        dhcp6: false
+        dhcp-identifier: mac
   packages:
     - qemu-guest-agent
     - sudo
@@ -47,8 +55,8 @@ autoinstall:
     swap:
       size: 0
   user-data:
-    package_upgrade: false
-    timezone: UTC
+    package_upgrade: true
+    timezone: Europe/Paris
     disable_root: false
   late-commands:
     - echo 'ubuntu ALL=(ALL) NOPASSWD:ALL' > /target/etc/sudoers.d/ubuntu

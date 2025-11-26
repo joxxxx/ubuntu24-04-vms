@@ -52,7 +52,7 @@ variable "dns_domain" {
 variable "ssh_public_keys" {
   description = "SSH public keys to add to the VM"
   type        = string
-  default     = ""
+  default     = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAc1CL5PjTH1pgg/WJtIVzJ4AwDUBauFkzhG4QANdCCy genoy@joxxxx-win"
 }
 
 variable "vm_password" {
