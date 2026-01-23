@@ -21,19 +21,19 @@ vms = {
   "master-1" = {
     ip_address = "10.1.60.11/24"
     cores      = 4
-    memory     = 5120
+    memory     = 8192
     disk_size  = "30"
   }
   "worker-1" = {
     ip_address = "10.1.60.12/24"
     cores      = 4
-    memory     = 3072
+    memory     = 8192
     disk_size  = "30"
   }
   "worker-2" = {
     ip_address = "10.1.60.13/24"
     cores      = 4
-    memory     = 3072
+    memory     = 8192
     disk_size  = "30"
   }
 }
