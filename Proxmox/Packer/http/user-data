@@ -20,6 +20,7 @@ autoinstall:
     authorized-keys:
       - "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJJqrNZ5pTSv8CqAamLwaTToVQTww20xWfT36zzEvXj7 joxxxx@joxxxx-win"
       - "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAc1CL5PjTH1pgg/WJtIVzJ4AwDUBauFkzhG4QANdCCy genoy@joxxxx-win"
+      - "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIN/B3elDmSKedsgQdgBXOgLkmq8YAnk7XRYzbt3EPFsd joxxxx@joxxxx-arch"
   network:
     version: 2
     ethernets:
@@ -49,6 +50,9 @@ autoinstall:
     - python3-pip
     - jq
     - cloud-init
+    - docker
+    - docker-compose
+    - portainer
   storage:
     layout:
       name: direct
