@@ -119,7 +119,7 @@ source "proxmox-iso" "ubuntu-2404" {
   disks {
     disk_size    = "20G"
     format       = "raw"
-    storage_pool = "dataext"
+    storage_pool = "local-lvm"
     type         = "scsi"
     ssd          = true
   }
@@ -204,12 +204,12 @@ build {
 
       "# Pin Docker version",
       "echo 'Package: docker-ce' | sudo tee /etc/apt/preferences.d/docker-ce",
-      "echo 'Pin: version 5:27.5.1*' | sudo tee -a /etc/apt/preferences.d/docker-ce",
+      "echo 'Pin: version 5:28.5.1*' | sudo tee -a /etc/apt/preferences.d/docker-ce",
       "echo 'Pin-Priority: 999' | sudo tee -a /etc/apt/preferences.d/docker-ce",
 
       "# Install Docker",
       "sudo apt-get update",
-      "sudo apt-get install -y docker-ce=5:27.5.1* docker-ce-cli=5:27.5.1* containerd.io docker-buildx-plugin docker-compose-plugin",
+      "sudo apt-get install -y docker-ce=5:28.5.1* docker-ce-cli=5:28.5.1* containerd.io docker-buildx-plugin docker-compose-plugin",
 
       "# Add ubuntu user to docker group",
       "sudo usermod -aG docker ubuntu",

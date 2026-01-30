@@ -50,9 +50,6 @@ autoinstall:
     - python3-pip
     - jq
     - cloud-init
-    - docker
-    - docker-compose
-    - portainer
   storage:
     layout:
       name: direct
